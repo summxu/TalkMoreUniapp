@@ -1,10 +1,13 @@
 import fc from '@/common/publicFc.js'
+import http from './request'
+
 let timer=null
 let retimer=null
 export default {
 	socketTask:null,
 	// 连接WebSocket
 	connectSocket() {
+    console.log(http)
 		this.socketTask=uni.connectSocket({
 			url: 'wss://im-api.q3z3.com/ws?Authorization=' + uni.getStorageSync('Authorization'),
 			complete: () => {}

@@ -1,12 +1,12 @@
 {
-    "name" : "微聊",
-    "appid" : "__UNI__CA19A2D",
-    "description" : "考拉Team微聊",
+    "name" : "多说",
+    "appid" : "__UNI__F006FEC",
+    "description" : "TalkMore多说",
     "versionName" : "1.2.1",
     "versionCode" : 121,
     "developer" : {
-        "name" : "zmm2113@qq.com",
-        "email" : "zmm2113@qq.com"
+        "name" : "",
+        "email" : ""
     },
     "transformPx" : false,
     "app-plus" : {
@@ -25,12 +25,9 @@
             "delay" : 0
         },
         "modules" : {
-            "Geolocation" : {},
-            "Maps" : {},
             "Push" : {},
-            "Speech" : {},
-            "VideoPlayer" : {},
-            "iBeacon" : {}
+            "SQLite" : {},
+            "VideoPlayer" : {}
         },
         /* 模块配置 */
         "distribute" : {
@@ -42,8 +39,6 @@
                     "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
-                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
-                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
@@ -55,9 +50,7 @@
                     "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
-                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
-                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
-                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>"
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ]
             },
             "ios" : {
@@ -65,24 +58,17 @@
             },
             /* ios打包配置 */
             "sdkConfigs" : {
-                "geolocation" : {
-                    "system" : {
-                        "__platform__" : [ "ios", "android" ]
-                    },
-                    "amap" : {
-                        "__platform__" : [ "ios", "android" ],
-                        "appkey_ios" : "81cc6c72aeb6a1946510cc1e9f87ee80",
-                        "appkey_android" : "81cc6c72aeb6a1946510cc1e9f87ee80"
-                    }
-                },
+                "geolocation" : {},
                 "maps" : {
                     "amap" : {
-                        "appkey_ios" : "81cc6c72aeb6a1946510cc1e9f87ee80",
-                        "appkey_android" : "81cc6c72aeb6a1946510cc1e9f87ee80"
+                        "appkey_ios" : "",
+                        "appkey_android" : ""
                     }
                 },
                 "push" : {
-                    "unipush" : {}
+                    "unipush" : {
+                        "offline" : false
+                    }
                 },
                 "speech" : {
                     "ifly" : {}
@@ -122,7 +108,7 @@
                 }
             },
             "splashscreen" : {
-                "androidStyle" : "default",
+                "androidStyle" : "common",
                 "android" : {
                     "hdpi" : "unpackage/res/splash/splash480.9.png",
                     "xhdpi" : "unpackage/res/splash/splash750.9.png",
@@ -131,7 +117,7 @@
             }
         },
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         },
         "nativePlugins" : {
             "TUICallingUniPlugin-TUICallingModule" : {
@@ -161,54 +147,69 @@
         },
         "usingComponents" : true,
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         }
     },
     "vueVersion" : "3",
     "uniStatistics" : {
-        "enable" : true,
+        "enable" : false,
         "version" : "1"
     },
     "h5" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         },
         "sdkConfigs" : {
             "maps" : {
                 "qqmap" : {
-                    "key" : "3U7BZ-AZZKD-IXC4C-HZA7T-2PGKT-EZFER"
+                    "key" : ""
                 }
             }
         }
     },
     "mp-alipay" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         }
     },
     "mp-baidu" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         }
     },
     "mp-kuaishou" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         }
     },
     "mp-lark" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         }
     },
     "mp-qq" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
         }
     },
     "mp-toutiao" : {
         "uniStatistics" : {
-            "enable" : true
+            "enable" : false
+        }
+    },
+    "mp-jd" : {
+        "uniStatistics" : {
+            "enable" : false
+        }
+    },
+    "quickapp-webview-huawei" : {
+        "uniStatistics" : {
+            "enable" : false
+        }
+    },
+    "quickapp-webview-union" : {
+        "uniStatistics" : {
+            "enable" : false
         }
     }
 }

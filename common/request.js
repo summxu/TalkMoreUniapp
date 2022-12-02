@@ -92,12 +92,9 @@ function request(con) {
 						icon: 'none'
 					});
 					uni.hideLoading();
-					// uni.clearStorage()
-					// setTimeout(()=>{
 					uni.reLaunch({
 						url:'/pages/wxindex/index'
 					})
-					// },1000)
 				}
 				// #ifdef APP-PLUS
 				if (res.data.code == 601) { //强制拉起升级
@@ -270,28 +267,7 @@ function downloadFile(con) {
 	}
 	return uni.downloadFile(http.beforeRequestFilter(config));
 }
-// 使用
-//POST
-// this.$http.request({
-// 	url: '/xxx',
-// 	method: 'POST',
-// 	data:JSON.stringify({id:111}),
-// 	success: (res) => {
-// 		if (res.data.code == 200) {
-// 			
-// 		}
-// 	}
-// });
-//GET
-// this.$http.request({
-// 	url: '/xxx?id=111',
-// 	success: (res) => {
-// 		if (res.data.code == 200) {
-// 			
-// 		}
-// 	}
-// });
+
 // 地址及配置
-http.setBaseUrl("https://im-api.q3z3.com"); //在线服务器
-// http.setBaseUrl("http://192.168.0.105:8080"); //离线服务器
+http.setBaseUrl("http://im.a6657.tk"); //在线服务器
 export default http
