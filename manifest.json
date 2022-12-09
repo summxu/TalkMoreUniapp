@@ -1,6 +1,6 @@
 {
     "name" : "多说",
-    "appid" : "__UNI__F006FEC",
+    "appid" : "__UNI__9C02950",
     "description" : "TalkMore多说",
     "versionName" : "1.2.1",
     "versionCode" : 121,
@@ -25,9 +25,9 @@
             "delay" : 0
         },
         "modules" : {
-            "Push" : {},
             "SQLite" : {},
-            "VideoPlayer" : {}
+            "VideoPlayer" : {},
+            "Push" : {}
         },
         /* 模块配置 */
         "distribute" : {
@@ -51,7 +51,8 @@
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                ],
+                "abiFilters" : [ "armeabi-v7a", "x86" ]
             },
             "ios" : {
                 "dSYMs" : false
@@ -67,7 +68,15 @@
                 },
                 "push" : {
                     "unipush" : {
-                        "offline" : false
+                        "icons" : {
+                            "small" : {
+                                "ldpi" : "unpackage/res/icons/20x20.png",
+                                "mdpi" : "unpackage/res/icons/29x29.png",
+                                "hdpi" : "unpackage/res/icons/40x40.png",
+                                "xhdpi" : "unpackage/res/icons/58x58.png",
+                                "xxhdpi" : "unpackage/res/icons/72x72.png"
+                            }
+                        }
                     }
                 },
                 "speech" : {
@@ -113,7 +122,8 @@
                     "hdpi" : "unpackage/res/splash/splash480.9.png",
                     "xhdpi" : "unpackage/res/splash/splash750.9.png",
                     "xxhdpi" : "unpackage/res/splash/splash1080.9.png"
-                }
+                },
+                "useOriginalMsgbox" : true
             }
         },
         "uniStatistics" : {
@@ -160,11 +170,10 @@
             "enable" : false
         },
         "sdkConfigs" : {
-            "maps" : {
-                "qqmap" : {
-                    "key" : ""
-                }
-            }
+            "maps" : {}
+        },
+        "devServer" : {
+            "https" : false
         }
     },
     "mp-alipay" : {

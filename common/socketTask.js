@@ -9,7 +9,7 @@ export default {
 	connectSocket() {
     console.log(http)
 		this.socketTask=uni.connectSocket({
-			url: 'wss://im-api.q3z3.com/ws?Authorization=' + uni.getStorageSync('Authorization'),
+			url: 'ws://im.a6657.tk/ws?Authorization=' + uni.getStorageSync('Authorization'),
 			complete: () => {}
 		});
 		this.socketTask.onOpen(res => {

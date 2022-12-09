@@ -1,5 +1,4 @@
 // 表单验证
-// zmm2113@qq.com
 /**
  * @property {Object} formData 表单
  * @property {Object} rules 验证规则
