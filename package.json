@@ -1,5 +1,5 @@
 {
-  "name": "多说",
+  "name": "TalkMore",
   "version": "1.1.0",
   "description": "",
   "main": "main.js",
@@ -12,5 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "uview-ui": "^2.0.35"
   }
 }
