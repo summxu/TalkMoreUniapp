@@ -57,7 +57,7 @@
 			activeColor: {
 				// 激活状态颜色
 				type: String,
-				default: '#2979FF'
+				default: '#3F85FB'
 			},
 			deactiveColor: {
 				// 未激活状态颜色
@@ -88,7 +88,7 @@
 </script>
 
 <style lang="scss">
-	$uni-primary: #2979ff !default;
+	$uni-primary: #3F85FB !default;
 	$uni-border-color:#EDEDED;
 	.uni-steps {
 		/* #ifndef APP-NVUE */

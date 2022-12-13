@@ -93,7 +93,7 @@ function request(con) {
 					});
 					uni.hideLoading();
 					uni.reLaunch({
-						url:'/pages/wxindex/index'
+						url:'/pages/login/index'
 					})
 				}
 				// #ifdef APP-PLUS

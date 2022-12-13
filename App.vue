@@ -106,7 +106,7 @@
         })
         uni
           .reLaunch({
-            url: 'wx/tabbar1/index'
+            url: 'pages/tabbar1/index'
           })
           .then((res) => {
             // #ifdef APP-PLUS
@@ -196,10 +196,13 @@
 <style lang="scss">
   @import '@/uni_modules/uni-scss/index.scss';
   /*每个页面公共css */
-
   @import '@/static/styles/animation.css';
   /* #ifndef APP-NVUE */
   @import '@/static/customicons.css';
+
+  .mb10 {
+    margin-bottom: 10px;
+  }
 
   // 设置整个项目的背景色
   page {

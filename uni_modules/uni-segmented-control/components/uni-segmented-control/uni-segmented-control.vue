@@ -52,7 +52,7 @@
 			},
 			activeColor: {
 				type: String,
-				default: '#2979FF'
+				default: '#3F85FB'
 			},
 			styleType: {
 				type: String,

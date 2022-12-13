@@ -310,7 +310,7 @@
 </script>
 
 <style lang="scss" scoped>
-	$uni-primary: #2979ff;
+	$uni-primary: #3F85FB;
 
 	.uni-pagination {
 		/* #ifndef APP-NVUE */

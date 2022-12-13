@@ -70,7 +70,7 @@
 	}
 </script>
 <style lang="scss" scoped>
-	$uni-primary: #2979ff !default;
+	$uni-primary: #3F85FB !default;
 	
 	.uni-section {
 		background-color: #fff;
