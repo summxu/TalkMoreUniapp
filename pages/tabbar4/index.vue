@@ -32,12 +32,12 @@
 				}],
 				shoucang: [{
 					title: '收藏',
-					path: '../../wx/favorites/index',
+					path: '../../pages/favorites/index',
 					icon: '../../static/wx/t07.png',
 					else: []
 				},{
 					title: '朋友圈',
-					path: '../../wx/friendsCircle/person',
+					path: '../../pages/friendsCircle/person',
 					icon: '../../static/wx/t01.png',
 					else: []
 				},{
@@ -74,7 +74,7 @@
 			},
 			goPersonDetail(){
 				uni.navigateTo({
-					url:'../../wx/personDetail/index'
+					url:'../../pages/personDetail/index'
 				})
 			}
 		}

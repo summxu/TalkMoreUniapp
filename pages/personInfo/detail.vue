@@ -140,7 +140,7 @@
 				switch (i){
 					case 1:
 					uni.navigateTo({
-						url:'../../wx/friendsCircle/person?userId='+this.detail.userId
+						url:'../../pages/friendsCircle/person?userId='+this.detail.userId
 					})
 						break;
 					default:

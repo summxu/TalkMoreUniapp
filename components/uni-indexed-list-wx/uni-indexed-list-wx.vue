@@ -143,13 +143,13 @@
 			addlist(){
 				return [{
 					title:'新的朋友',
-					path:'../../wx/search-friends/index',
+					path:'../../pages/search-friends/index',
 					num:this.$store.state.friendApply.count ? this.$store.state.friendApply.count : '',
 					icon:'jiahaoyou',
 					color:'#FB9E3E'
 				},{
 					title:'群聊',
-					path:'../../wx/groupInfo/grouplist',
+					path:'../../pages/groupInfo/grouplist',
 					icon:'qunl',
 					num:'',
 					color:'#0ABF62'

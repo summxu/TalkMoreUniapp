@@ -45,12 +45,12 @@
 					else: []
 				},{
 					title: '摇一摇',
-					path:'../../wx/shake/index',
+					path:'../../pages/shake/index',
 					icon: '../../static/wx/t12.png',
 					else: []
 				},{
 					title: '附近',
-					path:'../../wx/nearby/index',
+					path:'../../pages/nearby/index',
 					icon: '../../static/wx/t15.png',
 					else: []
 				}],
@@ -92,7 +92,7 @@
 				return [{
 					title: '朋友圈',
 					type:this.$store.state.topicReply.count ? 'dottext' : '',
-					path:'../../wx/friendsCircle/index',
+					path:'../../pages/friendsCircle/index',
 					icon: '../../static/wx/t01.png',
 					else: [{
 						type: this.$store.state.topicRed.portrait ? 'dotimg' : '',

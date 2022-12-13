@@ -191,7 +191,7 @@
 									complete() {
 										setTimeout(()=>{
 											uni.redirectTo({
-												url:'/wx/login/index'
+												url:'/pages/login/index'
 											})
 										},1500)
 									}

@@ -88,7 +88,7 @@ export default {
 		},
 		userClick(cover, user) {
 			uni.navigateTo({
-				url: '../../wx/friendsCircle/person'
+				url: '../../pages/friendsCircle/person'
 			});
 		},
 		gomsglist() {

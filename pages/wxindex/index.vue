@@ -54,12 +54,12 @@
 		methods: {
 			goLogin(){
 				uni.navigateTo({
-					url:'../../wx/login/index'
+					url:'../../pages/login/index'
 				})
 			},
 			goRegister(){
 				uni.navigateTo({
-					url:'../../wx/register/index'
+					url:'../../pages/register/index'
 				})
 			}
 		}

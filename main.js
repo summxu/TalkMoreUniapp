@@ -7,7 +7,6 @@ import socketTask from "@/common/socketTask.js";
 // #endif
 import zmmFormCheck from './common/zmmFormCheck.js';
 import pinyin from './common/pinyin.js';
-import uView from "uview-ui";
 
 // 自定义方法
 const toPage = (url) => {
@@ -37,8 +36,6 @@ Vue.prototype.$pinyin = pinyin;
 Vue.prototype.$toPage=toPage;
 Vue.prototype.$goBack=goBack;
 
-Vue.use(uView);
-
 // #ifdef H5
 Vue.prototype.$socketTask = socketTask;
 // #endif
@@ -67,7 +64,6 @@ export function createApp() {
   app.config.globalProperties.$socketTask = socketTask
   // #endif
   app.use(store);
-  app.use(uView);
   return {
     app
   }

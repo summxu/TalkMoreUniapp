@@ -147,7 +147,7 @@ export default {
 		},
 		gofriend(e){
 			uni.navigateTo({
-				url:'../../wx/personInfo/detail?param='+e.userId
+				url:'../../pages/personInfo/detail?param='+e.userId
 			})
 		},
 		pimgs(arr,ii){

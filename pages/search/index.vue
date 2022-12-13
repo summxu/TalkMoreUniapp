@@ -41,7 +41,7 @@
 		methods: {
 			godetail(e){
 				uni.navigateTo({
-					url:'../../wx/personInfo/detail?param='+e.userId
+					url:'../../pages/personInfo/detail?param='+e.userId
 				})
 			},
 			clickearch(e) { //点击搜索回调

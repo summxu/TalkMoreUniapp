@@ -74,7 +74,7 @@ export default {
 		},
 		userClick(cover,user){
 			uni.navigateTo({
-				url:'../../wx/personInfo/detail?param='+user.userId
+				url:'../../pages/personInfo/detail?param='+user.userId
 			})
 		},
 		getlist(userId){

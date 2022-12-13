@@ -901,12 +901,12 @@ export default {
 				switch (type){
 					case 'group':
 					uni.navigateTo({
-						url:'../../wx/groupInfo/scanCodeDetail?param='+result
+						url:'../../pages/groupInfo/scanCodeDetail?param='+result
 					})
 						break;
 					case 'user':
 					uni.navigateTo({
-						url:'../../wx/personInfo/detail?param='+value+'&source=1'
+						url:'../../pages/personInfo/detail?param='+value+'&source=1'
 					})
 						break;
 					default:

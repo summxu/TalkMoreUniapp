@@ -115,12 +115,12 @@ export default {
 	methods: {
 		qunAdd() {
 			uni.navigateTo({
-				url: '../../wx/groupInfo/qunAdd?groupId=' + this.detail.group.groupId
+				url: '../../pages/groupInfo/qunAdd?groupId=' + this.detail.group.groupId
 			});
 		},
 		qunless() {
 			uni.navigateTo({
-				url: '../../wx/groupInfo/qunless?groupId=' + this.detail.group.groupId
+				url: '../../pages/groupInfo/qunless?groupId=' + this.detail.group.groupId
 			});
 		},
 		jiesan() {
@@ -221,7 +221,7 @@ export default {
 		},
 		gofriend(e) {
 			uni.navigateTo({
-				url: '../../wx/personInfo/detail?param=' + e.userId+'&source=7'
+				url: '../../pages/personInfo/detail?param=' + e.userId+'&source=7'
 			});
 		},
 		switchChange(e, type) {

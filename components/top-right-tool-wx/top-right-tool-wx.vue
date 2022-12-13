@@ -52,12 +52,12 @@ export default {
 	methods: {
 		groupChat(){
 			uni.navigateTo({
-				url:'../../wx/group/createGroup'
+				url:'../../pages/group/createGroup'
 			})
 		},
 		goSearchFriends(){
 			uni.navigateTo({
-				url:'../../wx/search-friends/index'
+				url:'../../pages/search-friends/index'
 			})
 		},
 		saoyisao(){
