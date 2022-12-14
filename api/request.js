@@ -1,9 +1,9 @@
-// http.js
+import store from "@/store";
 // 通常可以吧 baseUrl 单独放在一个 js 文件了
 export const baseUrl = 'http://im.a6657.tk'
 
 const tempHeade = {}
-const AUTH_TOKEN = ["Authorization", "device", "version"];
+const AUTH_TOKEN = ["device", "version"];
 for (var i = 0; i < AUTH_TOKEN.length; i++) {
   if (uni.getStorageSync(AUTH_TOKEN[i])) {
     tempHeade[AUTH_TOKEN[i]] = uni.getStorageSync(AUTH_TOKEN[i]);
@@ -18,7 +18,8 @@ export const request = (options = {}) => {
       data: options.data || {},
       header: {
         ...options.header,
-        ...tempHeade
+        ...tempHeade,
+        "Authorization": uni.getStorageSync('Authorization') // 暂时不清楚会不会有性能问题
       }
     }).then((res) => {
       if (!res.statusCode) {
@@ -44,9 +45,7 @@ export const request = (options = {}) => {
             icon: 'none'
           });
           uni.hideLoading();
-          uni.reLaunch({
-            url: '/pages/wxindex/index'
-          })
+          store.dispatch('logoutAction', true)
           reject('登录已过期，请重新登录')
         }
         // #ifdef APP-PLUS

@@ -25,9 +25,10 @@
         <view class="flex-col group_6">
           <view class="flex-row justify-between mb10">
             <text @click="toggleLogin" class="font_2 text_12">{{ !smsLogin ? '验证码登录/注册' : '手机号密码登录' }}</text>
-            <text class="font_2 text_8">忘记密码了?</text>
+            <text @click="goForgetPass" class="font_2 text_8">忘记密码了?</text>
           </view>
-          <view class="flex-col justify-start items-center button"><text class="font_1 text_9">登录</text></view>
+          <view @click="sublogin" class="flex-col justify-start items-center button"><text
+              class="font_1 text_9">登录</text></view>
           <view class="flex-col group_7 space-y-14">
             <text class="text_10">或</text>
             <view class="flex-row justify-center button_2">
@@ -41,7 +42,7 @@
       <view class="login-agree">
         <view class="login-agree-checkd" @click="agree = !agree">
           <label for="agree">
-            <checkbox style="transform:scale(0.6)" :checked="agree" />
+            <checkbox id="agree" style="transform:scale(0.6)" :checked="agree" />
             <text class="login-agree-btn">我同意</text>
           </label>
         </view>
@@ -52,7 +53,7 @@
 </template>
 
 <script>
-import { sendCode } from "@/api";
+import { sendCode, getAgreement, login, loginByCode, trtcGetSign } from "@/api";
 export default {
   data () {
     return {
@@ -65,6 +66,147 @@ export default {
   },
   onLoad () { },
   methods: {
+    async sublogin (e) {
+      var rules = {
+        phone: {
+          rules: [{
+            checkType: "required",
+            errorMsg: "请填写手机号码"
+          }, {
+            checkType: "phone",
+            errorMsg: "请填写正确的手机号码"
+          }]
+        }
+      };
+      if (!this.smsLogin) {
+        rules.password = {
+          rules: [{
+            checkType: "required",
+            errorMsg: "请输入密码"
+          }, {
+            checkType: "string",
+            checkRule: "8,20",
+            errorMsg: "密码至少输入8-20位"
+          }]
+        }
+      } else {
+        rules.password = {
+          rules: [{
+            checkType: "required",
+            errorMsg: "请输入验证码"
+          }, {
+            checkType: "string",
+            checkRule: "4",
+            errorMsg: "验证码至少输入4位"
+          }]
+        }
+      }
+
+      var checkRes = this.$zmmFormCheck.check(this.formData, rules);
+
+      // #ifdef APP-PLUS
+      var cid = plus.push.getClientInfo().clientid
+      this.formData['cid'] = cid
+      // #endif
+
+      // #ifdef H5
+      // todo
+      var cid = ''
+      this.formData['cid'] = cid
+      // #endif
+
+      uni.setStorageSync('cid', cid);
+
+      if (checkRes) {
+        if (!this.agree) {
+          uni.showToast({
+            title: '请先同意《隐私及服务协议》',
+            icon: 'none'
+          });
+          return;
+        }
+        uni.showLoading()
+        try {
+          if (!this.smsLogin) {
+            var { data } = await login(this.formData)
+          } else {
+            var { data } = await loginByCode({
+              ...this.formData,
+              code: this.formData.password
+            })
+          }
+          this.loginDone(data.token)
+        } catch (error) {
+          console.log(error)
+        }
+      } else {
+        uni.showToast({
+          title: this.$zmmFormCheck.error,
+          icon: "none",
+          position: 'bottom'
+        });
+      }
+    },
+    async loginDone (token) {
+
+      uni.setStorageSync('Authorization', token);
+
+      // #ifdef H5
+      this.$socketTask.connectSocket()
+      // #endif
+
+      try {
+        const userRes = await this.$store.dispatch('get_UserInfo')
+
+        // #ifdef APP-PLUS
+        var nickName = userRes.nickName
+        var portrait = userRes.portrait
+        const { data } = await trtcGetSign()
+
+        var sdkAppID = data.appId
+        var userID = data.userId
+        var userSig = data.sign
+
+        TUICalling.login({//登录音视频
+          sdkAppID: sdkAppID,
+          userID: userID,
+          userSig: userSig
+        }, (res) => {
+          console.log('音视频登录成功')
+          TUICalling.setUserNickname({
+            nickName: nickName
+          })
+          TUICalling.setUserAvatar({
+            avatar: portrait
+          })
+          plus.io.requestFileSystem(plus.io.PRIVATE_WWW, function (fs) {
+            fs.root.getFile('/static/longcall.mp3', {
+              create: false
+            }, function (fileEntry) {
+              fileEntry.file(function (file) {
+                TUICalling.setCallingBell({
+                  ringtone: file.fullPath
+                }, (res) => {
+                  console.log(JSON.stringify(res))
+                })
+              });
+            });
+          });
+        })
+        // #endif
+
+      } catch (error) {
+        uni.reLaunch({
+          url: '../tabbar1/index'
+        })
+      }
+
+    },
+    goForgetPass () {
+      uni.navigateTo({
+        url: '../forgetPass/index'
+      })
+    },
     async getMsgCode () {
       var reg = /^1[0-9]{10,10}$/;
       if (!this.formData.phone || !reg.test(this.formData.phone)) {
@@ -102,23 +244,21 @@ export default {
       }
     },
     toggleLogin () {
-      this.smsLogin = !this.smsLogin
       this.formData.password = ''
+      this.smsLogin = !this.smsLogin
     },
-    goagreement () {
-      uni.navigateTo({
-        url: '../agreement/index'
-      })
-    },
-    goLogin () {
-      uni.navigateTo({
-        url: '../../pages/login/index'
-      })
-    },
-    goRegister () {
-      uni.navigateTo({
-        url: '../../pages/register/index'
-      })
+    async goagreement () {
+      try {
+        const { data } = await getAgreement()
+        // #ifdef H5
+        window.open(data)
+        // #endif
+        // #ifdef APP-PLUS
+        this.$fc.openWebView(data)
+        // #endif
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
@@ -392,7 +532,7 @@ export default {
 .send-btn,
 .send-text {
   position: absolute;
-  right: 10px;
+  right: 5px;
   bottom: 5px;
   background-color: $uni-success;
   color: white;
@@ -400,6 +540,7 @@ export default {
 
 .send-text {
   background: transparent;
+  right: 10px;
   bottom: 10px;
   color: $uni-base-color;
 }

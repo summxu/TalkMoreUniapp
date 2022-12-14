@@ -187,7 +187,7 @@
 				formData['cid'] = cid
 				// #endif
 				uni.setStorageSync('cid', cid);
-				console.log(cid)
+        
 				if (checkRes) {
 					if (!this.agree) {
 						uni.showToast({

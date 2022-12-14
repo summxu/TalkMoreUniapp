@@ -25,3 +25,54 @@ export function sendCode (data) {
     data
   })
 }
+
+// 获取在线协议
+export function getAgreement () {
+  return request({
+    url: `/common/getAgreement`,
+    type: 'GET'
+  })
+}
+
+// 手机号密码登录
+export function login (data) {
+  return request({
+    url: `/auth/login`,
+    type: 'POST',
+    data
+  })
+}
+
+// 手机号验证码登录
+export function loginByCode (data) {
+  return request({
+    url: `/auth/loginByCode`,
+    type: 'POST',
+    data
+  })
+}
+
+// 音视频通话初始化
+export function trtcGetSign (data) {
+  return request({
+    url: `/trtc/getSign`,
+    type: 'POST',
+    data
+  })
+}
+
+// 获取用户信息
+export function getInfo () {
+  return request({
+    url: `/my/getInfo`,
+    type: 'GET'
+  })
+}
+
+// 退出登录
+export function logout () {
+  return request({
+    url: `/my/logout`,
+    type: 'GET'
+  })
+}
