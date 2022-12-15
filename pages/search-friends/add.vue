@@ -31,14 +31,14 @@ export default {
 		subform(e) {
 			var rules = {
 				content: {
-					reason: [{
+					rules: [{
 						checkType: "required",
 						errorMsg: "请填写验证内容"
 					}]
 				}
 			};
 			var formData = JSON.parse(JSON.stringify(this.form));
-			var checkRes = this.$zmmFormCheck.check(formData, rules);
+			var checkRes = true
 			if (checkRes) {
 				this.$http.request({
 					url: '/apply/add',

@@ -19,7 +19,7 @@
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
         "splashscreen" : {
-            "alwaysShowBeforeRender" : false,
+            "alwaysShowBeforeRender" : true,
             "waiting" : false,
             "autoclose" : false,
             "delay" : 0
@@ -70,9 +70,9 @@
                     "unipush" : {
                         "icons" : {
                             "small" : {
+                                "hdpi" : "unpackage/res/icons/40x40.png",
                                 "ldpi" : "unpackage/res/icons/20x20.png",
                                 "mdpi" : "unpackage/res/icons/29x29.png",
-                                "hdpi" : "unpackage/res/icons/40x40.png",
                                 "xhdpi" : "unpackage/res/icons/58x58.png",
                                 "xxhdpi" : "unpackage/res/icons/72x72.png"
                             }
@@ -123,7 +123,7 @@
                     "xhdpi" : "unpackage/res/splash/splash750.9.png",
                     "xxhdpi" : "unpackage/res/splash/splash1080.9.png"
                 },
-                "useOriginalMsgbox" : true
+                "useOriginalMsgbox" : false
             }
         },
         "uniStatistics" : {

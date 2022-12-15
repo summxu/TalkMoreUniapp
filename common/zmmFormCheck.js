@@ -15,6 +15,7 @@ export default {
       }
     })
     formDataKeys = Object.keys(formData)
+    console.log(formDataKeys)
 
     for (var i = 0; i < formDataKeys.length; i++) {
       var key = formDataKeys[i]
