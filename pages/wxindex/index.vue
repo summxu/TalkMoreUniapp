@@ -328,7 +328,7 @@ export default {
           }
 
           .section {
-            padding: 10px 16px 10px;
+            padding: 10px 10px 10px;
             background-image: url('../../static/img/login/fe5f0987a2d388f77a80933413635b40.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
@@ -482,8 +482,8 @@ export default {
 
       .font_2 {
         font-size: 14px;
-        font-family: HarmonyOSSansSC;
-        line-height: 12px;
+        line-height: 20px;
+        min-height: 20px;
       }
 
       .text_12 {
@@ -532,7 +532,7 @@ export default {
 .send-btn,
 .send-text {
   position: absolute;
-  right: 5px;
+  right:10px;
   bottom: 5px;
   background-color: $uni-success;
   color: white;
@@ -544,4 +544,5 @@ export default {
   bottom: 10px;
   color: $uni-base-color;
 }
+
 </style>
